@@ -1,4 +1,5 @@
 window.addEventListener("load", () =>{
+    applyDiscount(orders, 7, 20);
 
 })
 
@@ -25,12 +26,10 @@ function applyDiscount(array, month, discount){
         const d = new Date(parseInt(array[i]["timestamp"])*1000);
         const m = (d.getMonth()+1);
 
-        if(m==month){
+        if(m===month){
             const newPrice = array[i]["price"]*(1-(discount/100));
             array[i]["price"]=(newPrice.toFixed(2)).toString();
         }
     }
+    console.log(array);
 }
-
-applyDiscount(orders, 7, 20);
-console.log(orders);
